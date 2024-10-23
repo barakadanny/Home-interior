@@ -1,21 +1,32 @@
-import { Loader2 } from "lucide-react";
-import { Button } from "./components/ui/button";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { useAppSelector } from "./hooks";
+import {
+  HomeLayout,
+  Landing,
+  Error,
+  Products,
+  SingleProduct,
+  Cart,
+  About,
+  Register,
+  Login,
+  Checkout,
+  Orders,
+} from "./pages";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Landing />,
+  },
+  {
+    path: "/cart",
+    element: <Cart />,
+  },
+]);
 
 function App() {
-  const { name } = useAppSelector((state) => state.userState);
-  console.log(name);
-  return (
-    <>
-      <h1 className="text-3xl font-bold underline text-red-500">
-        Hello world!
-      </h1>
-      <Button disabled size="lg">
-        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-        Please wait
-      </Button>
-    </>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
