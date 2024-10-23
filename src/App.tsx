@@ -1,7 +1,10 @@
 import { Loader2 } from "lucide-react";
 import { Button } from "./components/ui/button";
+import { useAppSelector } from "./hooks";
 
 function App() {
+  const { name } = useAppSelector((state) => state.userState);
+  console.log(name);
   return (
     <>
       <h1 className="text-3xl font-bold underline text-red-500">
